@@ -11,7 +11,7 @@ class AnnonceController{
 
     public function show(int $id)
     {
-        echo 'Je suis le post ' . $id;
+        echo 'Je suis le produit n° ' . $id;
     }
 }
 
