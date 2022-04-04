@@ -2,16 +2,16 @@
 
 namespace App\Controllers;
 
-class AnnonceController{
+class AnnonceController extends Controller {
 
     public function index()
     {
-        echo 'Je suis la homepage';
+        return $this->view('produits.index');
     }
 
     public function show(int $id)
     {
-        echo 'Je suis le produit n° ' . $id;
+        return $this->view('produits.show', compact('id'));
     }
 }
 
