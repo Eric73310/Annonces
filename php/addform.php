@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="crud/add.php" method="post">
+<form action="crud/add.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="titre">Titre : </label>
             <input type="text" id="titre" name="titre">
@@ -19,6 +19,11 @@
         <div>
             <label for="prix">Prix : </label>
             <input type="number" id="prix" name="prix">
+        </div>
+
+        <div>
+            <label for="">Image</label>
+            <input type="file" multiple>
         </div>
 
         <label for="Categorie">Categorie:</label>

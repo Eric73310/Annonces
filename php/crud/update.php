@@ -32,7 +32,7 @@ class Update{
 }
 
 if(isset($_POST['update'])){
-    $doular = new Create($_GET['id'], $_POST['titre'],$_POST['description'], $_POST['prix'], $_POST['categorie']);
+    $doular = new Update($_GET['id'], $_POST['titre'],$_POST['description'], $_POST['prix'], $_POST['categorie']);
     $doular->insert_data();
 }
 
