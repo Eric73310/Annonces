@@ -14,6 +14,8 @@ public function delete(){
     $doular = $db->prepare($sql);
     $doular->bindValue(':id',$this->id);
     $doular->execute();
+    header("Location: http://localhost/Annonces/ ");
+
    
     
 }
