@@ -23,7 +23,7 @@ $resultat = $db->query($sql);
         </div>
         <div>
             <label for="description">Description : </label>
-            <input type="text" id="description" name="description">
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
         </div>
         <div>
             <label for="prix">Prix : </label>
