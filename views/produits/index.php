@@ -11,9 +11,7 @@ foreach($params['produits'] as $produit):
     <p>Description : <?= $produit->description ?></p>
     <p>Prix : <?= $produit->prix ?></p>
 
-    <!-- <form action="php/crud/delete.php?id=<?= $produit->id ?>" method="post">
-        <input type="submit" name="delete" value="delete">
-    </form> -->
+    <a href="/Annonces/produits/<?= $produit->id ?>">Voir le produit</a>
     
     <?php  endforeach?>
   

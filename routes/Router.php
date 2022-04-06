@@ -25,7 +25,7 @@ class Router{
             if ($route->matches($this->url)) // La route a une fonction matches qui prend en paramètre l'url
             $route->execute(); // Cette fonction appelle le bon controlleur avec la bonne fonction
         }
-        return header('HTTP/1.0 404 Not Found');
+        //return header('HTTP/1.0 404 Not Found');
     }
 }
 

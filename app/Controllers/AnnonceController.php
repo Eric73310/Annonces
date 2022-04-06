@@ -19,13 +19,10 @@ class AnnonceController extends Controller {
 
     public function show(int $id)
     {
-        // $db = new Database('annonces', 'localhost', 'root', '');
-        // $req = $db->getConnection()->query("SELECT * FROM produits");
-        // $produits = $req->fetchAll();
-        // foreach ($produits as $produit) {
-        //     echo $produit->titre;
-        // }
-        return $this->view('produits.show', compact('id'));
+        $produit = new Produit($this->getConnection());
+        $produit = $produit->findById($id);
+
+        return $this->view('produits.show', compact('produit'));
     }
 
     public function form()
