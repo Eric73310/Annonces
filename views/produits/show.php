@@ -1,6 +1,9 @@
-<h1><?= $params['produit']->titre ?></h1>
-<p><?= $params['produit']->categorie ?></p>
-<p><?= $params['produit']->date ?></p>
-<p><?= $params['produit']->description ?></p>
-<p><?= $params['produit']->prix ?></p>
-<p><?= $params['produit']->id ?></p>
+
+
+<h2>Titre : <?= $params['produit']->titre ?></h2>
+<p>Categorie : <?= $params['produit']->categorie ?></p>
+<p>Date : <?= $params['produit']->getCreatedAt() ?></p>
+<p>Description : <?= $params['produit']->description ?></p>
+<p>Prix : <?= $params['produit']->prix ?></p>
+<p>Id : <?= $params['produit']->id ?></p>
+<a href="/Annonces/">Retour</a>

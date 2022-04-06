@@ -16,7 +16,7 @@ class Model{
 
     public function all() : array
     {
-        $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table}");
+        $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} ORDER BY date DESC");
         $select->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->conn]);
         $select->execute();
         return $select->fetchAll();

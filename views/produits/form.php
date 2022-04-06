@@ -1,4 +1,4 @@
-
+<h1>Insérer votre annonce</h1>
 <form action="" method="post">
     <div>
         <label for="titre">Titre : </label>
@@ -15,7 +15,7 @@
 
     <label for="Categorie">Categorie:</label>
     <select name="categorie" id="categorie">
-        <option hidden>--Please choose an option--</option>
+        <option hidden>Liste des catégories</option>
         <option value="automobile">Auto</option>
         <option value="immobilier">Immobilier</option>
         <option value="jardin">Jardin</option>
@@ -27,4 +27,5 @@
     <div id="submit">
         <input type="submit" name="create" value="Envoyer">
     </div>
+    <a href="/Annonces/">Retour</a>
 </form>
