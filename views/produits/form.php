@@ -20,7 +20,7 @@
         <option value="immobilier">Immobilier</option>
         <option value="jardin">Jardin</option>
         <option value="vetements">Vetements</option>
-        <option value="multimedie">Multimedia</option>
+        <option value="multimedia">Multimedia</option>
         <option value="emploi">Emploi</option>
     </select>
 
