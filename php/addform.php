@@ -1,3 +1,9 @@
+<?php 
+
+
+?> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +29,7 @@
 
         <div>
             <label for="">Image</label>
-            <input type="file" multiple>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
         </div>
 
         <label for="Categorie">Categorie:</label>

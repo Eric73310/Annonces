@@ -1,4 +1,5 @@
-<?php require_once 'php\bdd\connection.php';
+<?php 
+require_once 'php/bdd/connection.php';
 
 $sql = "SELECT * FROM  produits";
 $resultat = $db->query($sql);

@@ -1,40 +1,40 @@
 <?php
 
+
+
 class Create{
     private $titre;
     private $description;
     private $prix;
     private $categorie;
-    private $image;
 
-    function __construct($titre, $description, $prix, $categorie, $image){
+    function __construct($titre, $description, $prix, $categorie){
         $this->titre = $titre;
         $this->description = $description;
         $this->prix = $prix;
         $this->categorie = $categorie;
-        $this->image = $image;
             }
 
     public function insert_data(){
         include_once ('../bdd/connection.php');
 
-        $dataImage = [
-    
-            'img_link' => './photos/' . $_FILES['image']['name'], 
-            'img_file' => $_FILES['photo']['tmp_name']
-        ];
-    
-        // Save in Pic 
-        move_uploaded_file($dataImage['img_file'], $dataImage['img_link']);
-    
+        
+        $countfiles = count($_FILES['image']['name']);
+        for($i=0;$i<$countfiles;$i++){
+            $filename = $_FILES['image']['name'][$i];
+            $image[$i+1]=$filename;
+            move_uploaded_file($_FILES['image']['tmp_name'][$i],'pic/'.$filename);
+        }
 
-        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image`) VALUES (:titre,:description,:prix,:categorie,:image)";
+        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image1`) VALUES (:titre,:description,:prix,:categorie,:image1)";
         $doular = $db->prepare($sql);
         $doular->bindValue(':titre',$this->titre);
         $doular->bindValue(':description',$this->description);
         $doular->bindValue(':prix',$this->prix);
         $doular->bindValue(':categorie',$this->categorie);
-        $doular->bindValue(':image', $this->image);
+        for ($i=1;$i<$countfiles+1;$i++){
+            $doular->bindParam(':image'.$i,$image[$i]);
+          }
 
 
         
@@ -48,8 +48,10 @@ class Create{
 }
 
 if(isset($_POST['create'])){
-    $doular = new Create($_POST['titre'],$_POST['description'], $_POST['prix'], $_POST['categorie'], $_POST['image']);
+    $doular = new Create($_POST['titre'],$_POST['description'], $_POST['prix'], $_POST['categorie']);
     $doular->insert_data();
 }
+
+if(isset(($_POST['image'])))
 
 ?>

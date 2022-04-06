@@ -19,7 +19,7 @@ while($rows = $result->fetch(PDO::FETCH_ASSOC)){
     <title>Document</title>
 </head>
 <body>
-<form action="crud/update.php?id=<?= $rows['id']?>" method="post">
+<form action="crud/update.php?id=<?= $rows['id']?>" method="post" >
         <div>
             <label for="titre">Titre : </label>
             <input type="text" id="titre" name="titre" value="<?= $rows['titre'] ?>"> 
