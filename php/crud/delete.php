@@ -10,10 +10,10 @@ public function __construct($id){
 
 public function delete(){
     include_once ('../bdd/connection.php');
-    $sql = "DELETE FROM produits WHERE id=:id";
+    $sql = "DELETE FROM produits WHERE id=?";
     $doular = $db->prepare($sql);
-    $doular->bindValue(':id',$this->id);
-    $doular->execute();
+    //$doular->bindValue('1',$this->id);
+    $doular->execute([$this->id]);
     header("Location: http://localhost/Annonces/ ");
 
    
