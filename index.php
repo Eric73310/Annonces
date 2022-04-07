@@ -26,12 +26,16 @@ while($rows = $resultat->fetch(PDO::FETCH_ASSOC)){
 
 ?>
 
-
- Titre : <?php echo $rows['titre']  ?><br>
+<div>
+<img style="height:100px; width: 100px" src="php/crud/pic/<?= $rows['image1']?>" alt="">
+</div>
+<div>
+Titre : <?php echo $rows['titre']  ?><br>
  Categorie :<?php echo $rows['categorie'] ?><br>
  Date :<?php echo $rows['date'] ?><br>
  Description : <?php echo $rows['description'] ?><br>
  Prix : <?php echo $rows['prix'] ?><br><br>
+</div>
 
  <form action="php/crud/delete.php?id=<?=$rows['id']?>" method="post">
      <input type="submit" name="delete" value="delete">

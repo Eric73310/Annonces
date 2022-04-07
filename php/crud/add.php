@@ -11,7 +11,7 @@ class Create{
     function __construct($titre, $description, $prix, $categorie){
         $this->titre = $titre;
         $this->description = $description;
-        $this->prix = $prix;
+        $this->prix = $prix; 
         $this->categorie = $categorie;
             }
 
@@ -26,7 +26,7 @@ class Create{
             move_uploaded_file($_FILES['image']['tmp_name'][$i],'pic/'.$filename);
         }
 
-        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image1`) VALUES (:titre,:description,:prix,:categorie,:image1)";
+        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image1`, `image2`, `image3`, `image4`, `image5`) VALUES (:titre,:description,:prix,:categorie,:image1, :image2,:image3, :image4,:image5)";
         $doular = $db->prepare($sql);
         $doular->bindValue(':titre',$this->titre);
         $doular->bindValue(':description',$this->description);
