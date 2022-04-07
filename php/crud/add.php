@@ -3,16 +3,15 @@
 
 
 class Create{
-    private $titre;
-    private $description;
-    private $prix;
-    private $categorie;
+    private $tableauinsert=[];
 
-    function __construct($titre, $description, $prix, $categorie){
-        $this->titre = $titre;
-        $this->description = $description;
-        $this->prix = $prix; 
-        $this->categorie = $categorie;
+    function __construct($doular){
+        // Exemple : $array[]=$value; Ajouter la value a la fin du tableau $array
+        // $this->tableauinsert[] = $doular['titre'];
+        // $this->tableauinsert[] = $doular['description'];
+        // $this->tableauinsert[] = $doular['prix'];
+        // $this->tableauinsert[] = $doular['categorie'];
+        array_push($this->tableauinsert, $doular['titre'],$doular['description'],$doular['prix'],$doular['categorie']);
             }
 
     public function insert_data(){
@@ -25,22 +24,19 @@ class Create{
             $image[$i+1]=$filename;
             move_uploaded_file($_FILES['image']['tmp_name'][$i],'pic/'.$filename);
         }
+        array_push($this->tableauinsert, $image[1],$image[2],$image[3],$image[4],$image[5]);
 
-        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image1`, `image2`, `image3`, `image4`, `image5`) VALUES (:titre,:description,:prix,:categorie,:image1, :image2,:image3, :image4,:image5)";
+        $sql = "INSERT INTO `produits`(`titre`, `description`, `prix`, `categorie`, `image1`, `image2`, `image3`, `image4`, `image5`) VALUES (?,?,?,?,?,?,?,?,?)";
         $doular = $db->prepare($sql);
-        $doular->bindValue(':titre',$this->titre);
-        $doular->bindValue(':description',$this->description);
-        $doular->bindValue(':prix',$this->prix);
-        $doular->bindValue(':categorie',$this->categorie);
-        for ($i=1;$i<$countfiles+1;$i++){
-            $doular->bindParam(':image'.$i,$image[$i]);
-          }
+        // $doular->bindValue(1,$this->titre);
+        // $doular->bindValue(2,$this->description);
+        // $doular->bindValue(3,$this->prix);
+        // $doular->bindValue(4,$this->categorie);
+        // for ($i=5;$i<$countfiles+5;$i++){
+        //     $doular->bindParam($i,$image[$i-4]);
+        //   }
 
-
-        
-
-     
-        $doular->execute();
+        $doular->execute($this->tableauinsert);
         header("Location: http://localhost/Annonces/ ");
 
     }
@@ -48,10 +44,8 @@ class Create{
 }
 
 if(isset($_POST['create'])){
-    $doular = new Create($_POST['titre'],$_POST['description'], $_POST['prix'], $_POST['categorie']);
+    $doular = new Create($_POST);
     $doular->insert_data();
 }
 
-if(isset(($_POST['image'])))
-
-?>
+// if(isset(($_POST['image'])))

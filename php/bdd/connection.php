@@ -4,7 +4,7 @@ class Database{
    
 
     private $host = "localhost";
-    private $db_name = "annonce";
+    private $db_name = "annonces";
     private $username = "root";
     private $password = "";
     public $conn;
