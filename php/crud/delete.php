@@ -12,7 +12,7 @@ public function delete(){
     include_once ('../bdd/connection.php');
     $sql = "DELETE FROM produits WHERE id=?";
     $doular = $db->prepare($sql);
-    //$doular->bindValue('1',$this->id);
+    //$doular->bindValue('id',$this->id);
     $doular->execute([$this->id]);
     header("Location: http://localhost/Annonces/ ");
 
