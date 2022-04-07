@@ -34,8 +34,27 @@ class Model{
         $select->execute([$id]);
         return $select->fetch();
     }
-}
 
+    public function create(array $data, ?array $relations = null)
+    {
+        $firstParenthesis = ""; // valeur après INSERT INTO
+        $secondParenthesis = ""; // valeur après VALUES
+        $i = 1;
+
+        foreach ($data as $key => $comma) {
+            $comma = $i === count($data) ? "" : ", "; // Si $i est strictement = au count de $data => on est arrivé à la fin alors on ne met rien sinon on met une virgule et un espace.
+            $firstParenthesis .= "{$key}{$comma}"; // .= pour cumuler les valeurs
+            $secondParenthesis .= ":{$key}{$comma}";
+            $i++;
+        }
+        //var_dump($firstParenthesis, $secondParenthesis); //die();die();
+
+        $select = $this->conn->getPDO()->prepare("INSERT INTO {$this->table} ($firstParenthesis)
+        VALUES($secondParenthesis)");
+        $select->execute($data);
+        
+}
+}
 
 
 ?>

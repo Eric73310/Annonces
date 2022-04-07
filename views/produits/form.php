@@ -1,5 +1,5 @@
 <h1>Insérer votre annonce</h1>
-<form action="" method="post">
+<form action="/Annonces/formulaire" method="POST">
     <div>
         <label for="titre">Titre : </label>
         <input type="text" id="titre" name="titre">
@@ -25,7 +25,7 @@
     </select>
 
     <div id="submit">
-        <input type="submit" name="create" value="Envoyer">
+        <input type="submit">
     </div>
     <a href="/Annonces/">Retour</a>
 </form>

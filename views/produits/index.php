@@ -3,7 +3,7 @@
 <a href="/Annonces/formulaire/">Mettre une annonce</a>
 <?php
 
-//var_dump($params);
+//print_r($params);
 foreach($params['produits'] as $produit):
 
 ?>

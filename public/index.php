@@ -20,6 +20,9 @@ $router->get('/', 'App\Controllers\AnnonceController@index'); // Un chemin '/' e
 $router->get('/produits/:id', 'App\Controllers\AnnonceController@show'); // Dans l'url on écrit produits/id
 $router->get('/formulaire', 'App\Controllers\AnnonceController@form');
 
+$router->get('/formulaire', 'App\Controllers\Admin\ProduitController@create');
+$router->post('/formulaire', 'App\Controllers\Admin\ProduitController@createProduit');
+
 // Pour vérifier que nos routes fonctionnent
 $router->run();
 
