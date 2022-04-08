@@ -7,12 +7,9 @@ class AnnonceController extends Controller {
 
     public function index()
     {
-        // $db = new Database('annonces', 'localhost', 'root', '');
-        // $req = $db->getPDO()->query("SELECT * FROM produits");
-        // $produits = $req->fetchAll();
         $produit = new Produit($this->getConnection());
         $produits = $produit->all();
-        // var_dump($produits);
+        //echo "<pre>",print_r($produits),"</pre>";  die();
         return $this->view('produits.index', compact('produits'));
 
     }

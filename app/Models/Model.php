@@ -8,6 +8,7 @@ use PDO;
 class Model{
     public $conn;
     public $table;
+    
 
     public function __construct(Database $conn)
     {
@@ -35,26 +36,39 @@ class Model{
         return $select->fetch();
     }
 
-    public function create(array $data, ?array $relations = null)
+    public function create(Model $data, ?array $relations = null)
     {
-        $firstParenthesis = ""; // valeur après INSERT INTO
-        $secondParenthesis = ""; // valeur après VALUES
-        $i = 1;
-
-        foreach ($data as $key => $comma) {
-            $comma = $i === count($data) ? "" : ", "; // Si $i est strictement = au count de $data => on est arrivé à la fin alors on ne met rien sinon on met une virgule et un espace.
-            $firstParenthesis .= "{$key}{$comma}"; // .= pour cumuler les valeurs
-            $secondParenthesis .= ":{$key}{$comma}";
-            $i++;
+        $keys=[];
+        $inter=[];
+        $values=[];
+        // $firstParenthesis = ""; // valeur après INSERT INTO
+        // $secondParenthesis = ""; // valeur après VALUES
+        // $i = 1;
+        // array_push($data, $this->$tableauinsert );
+        foreach ($data as $key => $value) {
+            if($value != null && $key != 'table' && $key != 'conn'){
+            $keys[ ]=$key;
+            $inter[]="?";
+            $values[]=$value;
+            }
+            // $comma = $i === count($data) ? "" : ", "; // Si $i est strictement = au count de $data => on est arrivé à la fin alors on ne met rien sinon on met une virgule et un espace.
+            // $firstParenthesis .= "{$key}{$comma}"; // .= pour cumuler les valeurs
+            // $secondParenthesis .= ":{$key}{$comma}";
+            // $i++;
         }
-        //var_dump($firstParenthesis, $secondParenthesis); //die();die();
-
-        $select = $this->conn->getPDO()->prepare("INSERT INTO {$this->table} ($firstParenthesis)
-        VALUES($secondParenthesis)");
-        $select->execute($data);
+        $colonne=implode(",",$keys);
+        $stringInter=implode(",",$inter);
+        //echo "<pre>",print_r($_FILES),"</pre>";  die();
+        //var_dump($firstParenthesis, $secondParenthesis); //die();
+        $select = $this->conn->getPDO()->prepare("INSERT INTO {$this->table} ($colonne)
+        VALUES($stringInter)");
+        $select->execute($values);
+        
         
 }
+
 }
+
 
 
 ?>

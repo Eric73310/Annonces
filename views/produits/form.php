@@ -1,5 +1,5 @@
 <h1>Insérer votre annonce</h1>
-<form action="/Annonces/formulaire" method="POST">
+<form action="/Annonces/formulaire" method="POST" enctype="multipart/form-data">
     <div>
         <label for="titre">Titre : </label>
         <input type="text" id="titre" name="titre">
@@ -12,7 +12,10 @@
         <label for="prix">Prix : </label>
         <input type="number" id="prix" name="prix">
     </div>
-
+    <div>
+            <label for="image">Image</label>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
+        </div>
     <label for="Categorie">Categorie:</label>
     <select name="categorie" id="categorie">
         <option hidden>Liste des catégories</option>
