@@ -6,6 +6,7 @@
   grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
   align-items: center;
   justify-items: center;
+  max-width: 1800px;
 }
 
 main#carousel {
@@ -99,6 +100,31 @@ input:nth-of-type(5) {
 
 input:nth-of-type(5):checked ~ main#carousel {
   --position: 5;
+}
+
+.form_create {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.formulaire {
+  width: 600px;
+  text-align: center;
+  border: solid 2px black;
+}
+
+label {
+  color: #359969;
+  font-size: larger;
+  text-decoration: underline;
+  width: 600px;
+}
+
+.btnadd {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 80%;
 }
 
 body {
