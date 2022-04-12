@@ -63,9 +63,28 @@ class Model{
         $select = $this->conn->getPDO()->prepare("INSERT INTO {$this->table} ($colonne)
         VALUES($stringInter)");
         $select->execute($values);
-        
-        
-}
+    }
+    public function update(Model $data, ?array $relations = null)
+    {
+        $keys=[];
+        $inter=[];
+        $values=[];
+
+        foreach ($data as $key => $value) {
+            if($value != null && $key != 'table' && $key != 'conn'){
+            $keys[ ]=$key;
+            $inter[]="?";
+            $values[]=$value;
+            }
+        }
+        $colonne=implode(",",$keys);
+        $stringInter=implode(",",$inter);
+
+        $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $colonne = $stringInter WHERE id = ?");
+        $update->execute($values);
+    }
+
+
 
 }
 
