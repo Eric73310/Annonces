@@ -1,14 +1,24 @@
-
 <h2>Titre : <?= $params['produit']->getTitre() ?></h2>
 <p>Categorie : <?= $params['produit']->getCategorie() ?></p>
 <p>Date : <?= $params['produit']->getCreatedAt() ?></p>
 <p>Description : <?= $params['produit']->getDescription() ?></p>
 <p>Prix : <?= $params['produit']->getPrix() ?></p>
-<img src="../public/pic/<?=$params['produit']->getImage1() ?>" alt="" width="300px">
-<img src="../public/pic/<?=$params['produit']->getImage2() ?>" alt="" width="300px">
-<img src="../public/pic/<?=$params['produit']->getImage3() ?>" alt="" width="300px">
-<img src="../public/pic/<?=$params['produit']->getImage4() ?>" alt="" width="300px">
-<img src="../public/pic/<?=$params['produit']->getImage5() ?>" alt="" width="300px">
+
+<div class="caroussel_container">
+    <input type="radio" name="position" checked />
+    <input type="radio" name="position" />
+    <input type="radio" name="position" />
+    <input type="radio" name="position" />
+    <input type="radio" name="position" />
+    <main id="carousel">
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage1() ?>" alt="" width="400px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage2() ?>" alt="" width="400px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage3() ?>" alt="" width="400px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage4() ?>" alt="" width="400px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage5() ?>" alt="" width="400px"></div>
+        <main>
+</div>
+
 
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/"><button class="seebtn">Modifier</button></a>
