@@ -1,5 +1,4 @@
-
-<h1>Insérer votre annonce</h1>
+<h1>Modifier votre annonce</h1>
 <form action="/Annonces/formulaire" method="POST" enctype="multipart/form-data">
     <div>
         <label for="titre">Titre : </label>

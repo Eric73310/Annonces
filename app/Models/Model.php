@@ -64,7 +64,7 @@ class Model{
         VALUES($stringInter)");
         $select->execute($values);
     }
-    public function update(Model $data, ?array $relations = null)
+    public function update(int $id, Model $data, ?array $relations = null)
     {
         $keys=[];
         $inter=[];
@@ -80,7 +80,7 @@ class Model{
         $colonne=implode(",",$keys);
         $stringInter=implode(",",$inter);
 
-        $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $colonne = $stringInter WHERE id = ?");
+        $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $colonne = $stringInter WHERE id = :id");
         $update->execute($values);
     }
 

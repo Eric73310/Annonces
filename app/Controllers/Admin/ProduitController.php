@@ -33,8 +33,46 @@ class ProduitController extends Controller{
         //var_dump($result);die();
         if ($result) {
             return header('Location: /Annonces/');
+        }
     }
-}
+    public function edit(int $id)
+    {
+    $produit = (new Produit($this->getConnection()))->findById;
+    return $this->view('produits.modif', compact('produit'));
+    }
+    public function update()
+    {
+    $produit = (new Produit($this->getConnection()));
+    return $this->view('produits.modif', compact('produit'));
+    //$result = $post->update($id, $_POST, $tags);
+
+    //     if ($result) {
+    //         return header('Location: /admin/posts');
+    }
+    // public function edit(int $id)
+    // {
+    //     $this->isAdmin();
+
+    //     $post = (new Post($this->getDB()))->findById($id);
+    //     $tags = (new Tag($this->getDB()))->all();
+
+    //     return $this->view('admin.post.form', compact('post', 'tags'));
+    // }
+
+    // public function update(int $id)
+    // {
+    //     $this->isAdmin();
+
+    //     $post = new Post($this->getDB());
+
+    //     $tags = array_pop($_POST);
+
+    //     $result = $post->update($id, $_POST, $tags);
+
+    //     if ($result) {
+    //         return header('Location: /admin/posts');
+    //     }
+    // }
 }
 
 
