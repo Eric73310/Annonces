@@ -67,20 +67,18 @@ class Model{
     public function update(int $id, Model $data, ?array $relations = null)
     {
         $keys=[];
-        $inter=[];
         $values=[];
 
         foreach ($data as $key => $value) {
             if($value != null && $key != 'table' && $key != 'conn'){
-            $keys[ ]=$key;
-            $inter[]="?";
+            $keys[ ]="$key = ?";
             $values[]=$value;
             }
         }
-        $colonne=implode(",",$keys);
-        $stringInter=implode(",",$inter);
+        $values[] = $id;
+        $keys = implode(",", $keys);
 
-        $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $colonne = $stringInter WHERE id = :id");
+        $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $keys WHERE id = ?");
         $update->execute($values);
     }
 

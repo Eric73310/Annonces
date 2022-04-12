@@ -23,10 +23,10 @@ class Produit extends Model{
         return (new DateTime($this->date))->format('d/m/Y');
     }
 
-    // public function getId()
-    // {
-    //     return $this->id;
-    // }
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getTitre()
     {
@@ -132,7 +132,12 @@ class Produit extends Model{
 
         return true;
     }
-
+    public function update(int $id, Model $data, ?array $relations = null)
+    {
+        parent::update($id, $data);
+        
+        return true;
+    }
 }
 
 ?>

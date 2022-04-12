@@ -35,44 +35,26 @@ class ProduitController extends Controller{
             return header('Location: /Annonces/');
         }
     }
+
     public function edit(int $id)
     {
-    $produit = (new Produit($this->getConnection()))->findById;
+    $produit = (new Produit($this->getConnection()))->findById($id);
     return $this->view('produits.modif', compact('produit'));
     }
-    public function update()
+
+    public function update(int $id)
     {
     $produit = (new Produit($this->getConnection()));
-    return $this->view('produits.modif', compact('produit'));
-    //$result = $post->update($id, $_POST, $tags);
+    $change = $produit->setTitre($_POST['titre'])->setDescription($_POST['description'])->setPrix($_POST['prix'])->setCategorie($_POST['categorie'])->setImage1($_FILES['image']['name'][0])->setImage2($_FILES['image']['name'][1])->setImage3($_FILES['image']['name'][2])->setImage4($_FILES['image']['name'][3])->setImage5($_FILES['image']['name'][4]);
 
-    //     if ($result) {
-    //         return header('Location: /admin/posts');
+    //echo "<pre>",print_r($GLOBALS),"</pre>"; die();
+
+    $resultat = $produit->update($id, $change);
+    //echo "<pre>",print_r($resultat),"</pre>";  die();
+        if($resultat){
+            return header("Location: /Annonces/produits/$id");
+        }
     }
-    // public function edit(int $id)
-    // {
-    //     $this->isAdmin();
-
-    //     $post = (new Post($this->getDB()))->findById($id);
-    //     $tags = (new Tag($this->getDB()))->all();
-
-    //     return $this->view('admin.post.form', compact('post', 'tags'));
-    // }
-
-    // public function update(int $id)
-    // {
-    //     $this->isAdmin();
-
-    //     $post = new Post($this->getDB());
-
-    //     $tags = array_pop($_POST);
-
-    //     $result = $post->update($id, $_POST, $tags);
-
-    //     if ($result) {
-    //         return header('Location: /admin/posts');
-    //     }
-    // }
 }
 
 

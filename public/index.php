@@ -22,8 +22,8 @@ $router->get('/formulaire', 'App\Controllers\AnnonceController@form');
 
 $router->get('/formulaire', 'App\Controllers\Admin\ProduitController@create');
 $router->post('/formulaire', 'App\Controllers\Admin\ProduitController@createProduit');
-$router->get('/formulaire/edit/:id', 'App\Controllers\Admin\ProduitController@edit');
-$router->post('/formulaire/edit/:id', 'App\Controllers\Admin\ProduitController@update');
+$router->get('/modifier/edit/:id', 'App\Controllers\Admin\ProduitController@edit');
+$router->post('/modifier/edit/:id', 'App\Controllers\Admin\ProduitController@update');
 
 
 // Pour vérifier que nos routes fonctionnent
