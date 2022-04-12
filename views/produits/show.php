@@ -10,4 +10,4 @@
 <img src="../public/pic/<?=$params['produit']->getImage4() ?>" alt="" width="300px">
 <img src="../public/pic/<?=$params['produit']->getImage5() ?>" alt="" width="300px">
 
-<a href="/Annonces/">Retour</a>
+<a href="/Annonces/"><button class="seebtn">Retour</button></a>

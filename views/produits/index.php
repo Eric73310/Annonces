@@ -1,23 +1,28 @@
-<h1>Liste des annonces</h1>
-
-<a href="/Annonces/formulaire/">Mettre une annonce</a>
 <?php
 
 //print_r($params);
-foreach($params['produits'] as $produit):
+foreach ($params['produits'] as $produit) :
 
 ?>
-    <h2> Titre : <?= $produit->getTitre()  ?></h2>
-    <p> Categorie :<?= $produit->getCategorie() ?></p>
-    <p>Date :<?= $produit->getCreatedAt() ?></p>
-    <p>Description : <?= $produit->getDescription() ?></p>
-    <p>Prix : <?= $produit->getPrix() ?></p>
-    <img src="public/pic/<?=$produit->getImage1() ?>" alt="" width="300px">
+    <div class="annonce_container">
+        <h2 class="categorie_annonce"><?= $produit->getCategorie() ?></h2>
+        <div class="contenu">
+            <div class="infos">
+                <h3 class="paddington"><?= $produit->getTitre()  ?></h3>
+                <p class="paddington">Date :<?= $produit->getCreatedAt() ?></p>
+                <p class="paddington">Description : <?= $produit->getDescription() ?></p>
+                <p class="paddington">Prix : <?= $produit->getPrix() ?>€</p>
+            </div>
+            <div class="photo">
+                <img src="public/pic/<?= $produit->getImage1() ?>" alt="" width="300px">
+            </div>
+        </div>
 
-    
-    
-    
 
-    <a href="/Annonces/produits/<?= $produit->id ?>">Voir le produit</a>
-    
-    <?php  endforeach?>
+
+
+
+        <a class="voir" href="/Annonces/produits/<?= $produit->id ?>"><button class="seebtn">Voir le produit</button></a>
+    </div>
+    <br>
+<?php endforeach ?>
