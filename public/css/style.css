@@ -121,6 +121,12 @@ label {
   width: 600px;
 }
 
+.btnadd {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 80%;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin-top: 0;

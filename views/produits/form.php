@@ -3,6 +3,9 @@
 <div class="form_create">
 <div class="formulaire">
 
+
+<form action="/Annonces/formulaire" method="POST" enctype="multipart/form-data">
+
 <label for="Categorie">Categorie:</label><br>
     <select name="categorie" id="categorie">
         <option hidden>Liste des catégories</option>
@@ -14,7 +17,6 @@
         <option value="emploi">Emploi</option>
     </select><br>
     
-<form action="/Annonces/formulaire" method="POST" enctype="multipart/form-data">
     <div>
     <br><label for="titre">Titre : </label><br>
         <input type="text" id="titre" name="titre">
@@ -34,11 +36,11 @@
         <br>
 
     <div id="submit">
-        <input type="submit">
+    <button class="seebtn" type="submit">Poster</button>
     </div>
     
 </form>
 </div>
 </div>
-
+<div class="btnadd">
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
