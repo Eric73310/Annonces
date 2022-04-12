@@ -11,3 +11,5 @@
 <img src="../public/pic/<?=$params['produit']->getImage5() ?>" alt="" width="300px">
 
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
+<a href="/Annonces/"><button class="seebtn">Modifier</button></a>
+<a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
