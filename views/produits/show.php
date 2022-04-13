@@ -14,11 +14,11 @@
     <input type="radio" name="position" />
     <input type="radio" name="position" />
     <main id="carousel">
-        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage1() ?>" alt="" width="350px"></div>
-        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage2() ?>" alt="" width="350px"></div>
-        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage3() ?>" alt="" width="350px"></div>
-        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage4() ?>" alt="" width="350px"></div>
-        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage5() ?>" alt="" width="350px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage1() ?>" alt="" width="350px" height="250px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage2() ?>" alt="" width="350px" height="250px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage3() ?>" alt="" width="350px" height="250px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage4() ?>" alt="" width="350px" height="250px"></div>
+        <div class="item"><img src="../public/pic/<?= $params['produit']->getImage5() ?>" alt="" width="350px" height="250px"></div>
         <main>
 </div>
 </div>
@@ -27,4 +27,4 @@
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
 <a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
-<button><a href="pdf{{$params}}" target="_blank">Générer un PDF de l'annonce</a></button>
+<a href="pdf{{$params}}" target="_blank"><button class="seebtn">Générer un PDF de l'annonce</button></a>
