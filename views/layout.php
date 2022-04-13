@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="icon" type="images/png" sizes="16x16" href="public\assets\logo">
+    <link rel="icon" type="images/png" sizes="16x16" href="../../Annonces/public/assets/logo">
     <meta charset="utf-8" />
     <title>Corner Shop</title>
     <link rel="stylesheet" href="<?= SCRIPTS . 'css' . DIRECTORY_SEPARATOR . 'style.css' ?>">
@@ -18,7 +18,7 @@
     <header>
         <div class="logo">
             
-            <img src="../../Annonces/public/assets/logo" alt="logo_corner_shop">
+            <a href="/Annonces/"><img src="../../Annonces/public/assets/logo" alt="logo_corner_shop"></a>
             
 
         </div>
