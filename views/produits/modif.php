@@ -1,6 +1,6 @@
 <h1>Modifier votre annonce</h1>
 <h2><?= $params['produit']->getId() ?></h2> 
-<form action="/Annonces/modifier/edit/ <?= $params['produit']->getId() ?>" method="POST" enctype="multipart/form-data">
+<form action="/Annonces/edit/<?= $params['produit']->getId() ?>" method="POST" enctype="multipart/form-data">
     <div>
         <label for="titre">Titre : </label>
         <input type="text" id="titre" name="titre" value="<?= $params['produit']->getTitre() ?>">

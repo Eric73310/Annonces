@@ -26,4 +26,6 @@
 
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
-<a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
+<form action="/Annonces/delete/<?= $params['produit']->id ?>" method="POST" class="d-inline">
+    <button type="submit" class="">Supprimer</button>
+</form>

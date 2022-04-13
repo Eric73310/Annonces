@@ -81,6 +81,14 @@ class Model{
         $update = $this->conn->getPDO()->prepare("UPDATE {$this->table} SET $keys WHERE id = ?");
         $update->execute($values);
     }
+    
+    public function delete(int $id)
+    {
+        $delete = $this->conn->getPDO()->prepare("DELETE  FROM {$this->table} WHERE id = ?");
+        $delete->execute([$id]);
+        $supp = $delete->fetchAll();
+        
+    }
 
 
 
