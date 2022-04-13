@@ -24,7 +24,7 @@
         for ($i=0; $i < 5 ; $i++) {
             $image[$i];
                 //echo "<pre>",print_r( $image[$i]),"</pre>";?>
-            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image<?=$i ?>" id="img" ><img src= "../../public/pic/<?= $image[$i] ?>">
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image<?=$i ?>" id="img" ><img src= "../public/pic/<?= $image[$i] ?>">
         <?php  } ?>
     </div>
 
