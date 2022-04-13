@@ -31,6 +31,8 @@ class AnnonceController extends Controller {
     {
         return $this->view('produits.modif');
     }
+
+    
 }
 
 

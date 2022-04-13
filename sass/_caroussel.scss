@@ -7,7 +7,6 @@
     align-items: center;
     justify-items: center;
     max-width: 1800px;
-    
   }
 
   main#carousel {
@@ -29,7 +28,7 @@
   
   div.item {
     position: absolute;
-    width: 300px;
+    width: 400px;
     height: 400px;
     
     --r: calc(var(--position) - var(--offset));

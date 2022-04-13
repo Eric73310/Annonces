@@ -13,5 +13,7 @@
             "Database\\": "database/"
         }
     },
-    "require": {}
+    "require": {
+        "mpdf/mpdf": "^8.0"
+    }
 }
