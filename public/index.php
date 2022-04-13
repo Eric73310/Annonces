@@ -19,11 +19,12 @@ $router = new Router( $_GET['url']);
 $router->get('/', 'App\Controllers\AnnonceController@index'); // Un chemin '/' et une action BlogController@index' (le controller @ la méthode)
 $router->get('/produits/:id', 'App\Controllers\AnnonceController@show'); // Dans l'url on écrit produits/id
 $router->get('/formulaire', 'App\Controllers\AnnonceController@form');
+$router->get('/formulaire', 'App\Controllers\AnnonceController@modif');
 
 $router->get('/formulaire', 'App\Controllers\Admin\ProduitController@create');
 $router->post('/formulaire', 'App\Controllers\Admin\ProduitController@createProduit');
-$router->get('/modifier/edit/:id', 'App\Controllers\Admin\ProduitController@edit');
-$router->post('/modifier/edit/:id', 'App\Controllers\Admin\ProduitController@update');
+$router->get('/edit/:id', 'App\Controllers\Admin\ProduitController@edit');
+$router->post('/edit/:id', 'App\Controllers\Admin\ProduitController@update');
 
 
 // Pour vérifier que nos routes fonctionnent

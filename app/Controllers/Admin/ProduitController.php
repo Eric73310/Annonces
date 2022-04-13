@@ -44,18 +44,18 @@ class ProduitController extends Controller{
 
     public function update(int $id)
     {
-        $countfiles = count($_FILES['image']['name']);
+        $countfiles = count($_FILES);
         for($i=0;$i<$countfiles;$i++){
-            $filename = $_FILES['image']['name'][$i];
+            $filename = $_FILES['image'. $i]['name'];
             $image[$i+1]=$filename;
             $path  =  getcwd() . DIRECTORY_SEPARATOR . 'pic' . DIRECTORY_SEPARATOR ; //getcwd() =>Retourne le dossier de travail courant
-            move_uploaded_file($_FILES['image']['tmp_name'][$i], $path . $filename);
+            move_uploaded_file($_FILES['image' . $i]['tmp_name'], $path . $filename);
         }
     $produit = (new Produit($this->getConnection()));
 
-    $change = $produit->setTitre($_POST['titre'])->setDescription($_POST['description'])->setPrix($_POST['prix'])->setCategorie($_POST['categorie'])->setImage1($_FILES['image']['name'][0])->setImage2($_FILES['image']['name'][1])->setImage3($_FILES['image']['name'][2])->setImage4($_FILES['image']['name'][3])->setImage5($_FILES['image']['name'][4]);
+    $change = $produit->setTitre($_POST['titre'])->setDescription($_POST['description'])->setPrix($_POST['prix'])->setCategorie($_POST['categorie'])->setImage1($_FILES['image0']['name'])->setImage2($_FILES['image1']['name'])->setImage3($_FILES['image2']['name'])->setImage4($_FILES['image3']['name'])->setImage5($_FILES['image4']['name']);
 
-    //echo "<pre>",print_r($change),"</pre>"; die();
+    //echo "<pre>",print_r($_FILES),"</pre>"; die();
 
     $resultat = $produit->update($id, $change);
     //echo "<pre>",print_r($resultat),"</pre>";  die();

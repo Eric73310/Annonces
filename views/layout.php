@@ -17,7 +17,10 @@
 <body>
     <header>
         <div class="logo">
-            <img src="public\assets\logo" alt="">
+            
+            <img src="../../Annonces/public/assets/logo" alt="logo_corner_shop">
+            
+
         </div>
         <div class="accroche">
             <h1>Achetez simplement <br>
