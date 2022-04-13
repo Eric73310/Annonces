@@ -44,10 +44,18 @@ class ProduitController extends Controller{
 
     public function update(int $id)
     {
+        $countfiles = count($_FILES['image']['name']);
+        for($i=0;$i<$countfiles;$i++){
+            $filename = $_FILES['image']['name'][$i];
+            $image[$i+1]=$filename;
+            $path  =  getcwd() . DIRECTORY_SEPARATOR . 'pic' . DIRECTORY_SEPARATOR ; //getcwd() =>Retourne le dossier de travail courant
+            move_uploaded_file($_FILES['image']['tmp_name'][$i], $path . $filename);
+        }
     $produit = (new Produit($this->getConnection()));
+
     $change = $produit->setTitre($_POST['titre'])->setDescription($_POST['description'])->setPrix($_POST['prix'])->setCategorie($_POST['categorie'])->setImage1($_FILES['image']['name'][0])->setImage2($_FILES['image']['name'][1])->setImage3($_FILES['image']['name'][2])->setImage4($_FILES['image']['name'][3])->setImage5($_FILES['image']['name'][4]);
 
-    //echo "<pre>",print_r($GLOBALS),"</pre>"; die();
+    //echo "<pre>",print_r($change),"</pre>"; die();
 
     $resultat = $produit->update($id, $change);
     //echo "<pre>",print_r($resultat),"</pre>";  die();

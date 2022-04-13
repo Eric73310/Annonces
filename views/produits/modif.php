@@ -18,7 +18,7 @@
 
     <div>
             <label for="image">Image</label>
-            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" value="<?= $params['produit']->getImage1() ?><?= $params['produit']->getImage2() ?><?= $params['produit']->getImage3() ?>"multiple required>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img"  multiple ><img src= "public/pic/<?=$params['produit']->getImage1() ?>">
     </div>
 
     <label for="Categorie">Categorie:</label>
