@@ -27,3 +27,4 @@
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/modifier/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
 <a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
+

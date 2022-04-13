@@ -28,7 +28,7 @@ main#carousel {
 
 div.item {
   position: absolute;
-  width: 300px;
+  width: 400px;
   height: 400px;
   --r: calc(var(--position) - var(--offset));
   --abs: max(calc(var(--r) * -1), var(--r));
@@ -130,6 +130,7 @@ label {
 body {
   font-family: "DM Sans", sans-serif;
   margin-top: 0;
+  accent-color: #519F50;
 }
 
 header {
