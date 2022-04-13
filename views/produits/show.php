@@ -27,3 +27,4 @@
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
 <a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
+<button><a href="pdf{{$params}}" target="_blank">Générer un PDF de l'annonce</a></button>
