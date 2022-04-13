@@ -17,8 +17,15 @@
     </div>
 
     <div>
-            <label for="image">Image</label>
-            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img"  multiple ><img src= "public/pic/<?=$params['produit']->getImage1() ?>">
+        <label for="image">Image</label>
+        <?php 
+        $image = array($params['produit']->getImage1(), $params['produit']->getImage2(), $params['produit']->getImage3(), $params['produit']->getImage4(), $params['produit']->getImage5());
+
+        for ($i=0; $i < 5 ; $i++) {
+            $image[$i];
+                //echo "<pre>",print_r( $image[$i]),"</pre>";?>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image<?=$i ?>" id="img" ><img src= "../../public/pic/<?= $image[$i] ?>">
+        <?php  } ?>
     </div>
 
     <label for="Categorie">Categorie:</label>
