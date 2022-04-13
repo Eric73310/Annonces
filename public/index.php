@@ -23,6 +23,7 @@ $router->get('/formulaire', 'App\Controllers\AnnonceController@modif');
 
 $router->get('/formulaire', 'App\Controllers\Admin\ProduitController@create');
 $router->post('/formulaire', 'App\Controllers\Admin\ProduitController@createProduit');
+$router->post('/delete/:id', 'App\Controllers\Admin\ProduitController@delete');
 $router->get('/edit/:id', 'App\Controllers\Admin\ProduitController@edit');
 $router->post('/edit/:id', 'App\Controllers\Admin\ProduitController@update');
 

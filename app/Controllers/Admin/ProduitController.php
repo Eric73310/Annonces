@@ -63,6 +63,15 @@ class ProduitController extends Controller{
             return header("Location: /Annonces/produits/$id");
         }
     }
+    public function delete(int $id)
+    {
+        $produit = (new Produit($this->getConnection()));
+        $delete = $produit->delete($id);
+        
+        if($delete){
+            return header("Location: /Annonces/");
+        }
+    }
 }
 
 

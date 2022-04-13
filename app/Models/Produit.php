@@ -138,6 +138,13 @@ class Produit extends Model{
         
         return true;
     }
+
+    public function delete(int $id)
+    {
+        parent::delete($id);
+        
+        return true;
+    }
 }
 
 ?>

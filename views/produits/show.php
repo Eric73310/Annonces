@@ -26,5 +26,7 @@
 
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
 <a href="/Annonces/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
-<a href="/Annonces/"><button class="seebtn">Supprimer</button></a>
-<a href="pdf{{$params}}" target="_blank"><button class="seebtn">Générer un PDF de l'annonce</button></a>
+<form action="/Annonces/delete/<?= $params['produit']->id ?>" method="POST" class="d-inline">
+    <button type="submit" class="">Supprimer</button>
+</form>
+<button><a href="pdf{{$params}}" target="_blank">Générer un PDF de l'annonce</a></button>
