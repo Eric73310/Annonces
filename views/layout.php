@@ -39,7 +39,7 @@
                 <option value="multimedia">Multimedia</option>
                 <option value="emploi">Emploi</option>
             </select>
-            <input type="submit" value="search" name="envoyer">
+            <input type="submit" value="Rechercher" name="envoyer">
         </div>
         </form>
         <div class="ajout">
@@ -48,8 +48,6 @@
         </div>
 
     </div>
-
-
 
     <?= $content ?>
 

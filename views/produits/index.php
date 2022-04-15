@@ -50,7 +50,7 @@ foreach ($params['annonces'] as $produit) :
                 <img src="public/pic/<?= $produit->getImage1() ?>" alt="" width="300px">
             </div>
         </div>
-        <a class="voir" href="/Annonces/produits/<?= $produit->id ?>"><button class="seebtn">Voir le produit</button></a>
+        <a class="voir" href="/Annonces/produits/<?= $produit->getId() ?>"><button class="seebtn">Voir le produit</button></a>
     </div>
     <br>
 <?php endforeach ?>

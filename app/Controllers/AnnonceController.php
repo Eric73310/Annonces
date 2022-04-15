@@ -10,7 +10,7 @@ class AnnonceController extends Controller {
         $produit = new Produit($this->getConnection());
         $produits = $produit->search();
         $annonces = $produit->all();
-        //echo "<pre>",print_r($produits),"</pre>";  die();
+        //echo "<pre>",print_r($annonces),"</pre>";  die();
         return $this->view('produits.index', compact('produits', 'annonces'));
 
     }
@@ -19,7 +19,7 @@ class AnnonceController extends Controller {
     {
         $produit = new Produit($this->getConnection());
         $produit = $produit->findById($id);
-
+        //echo "<pre>",print_r($produit),"</pre>"; die();
         return $this->view('produits.show', compact('produit'));
     }
 

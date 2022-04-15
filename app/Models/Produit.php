@@ -6,7 +6,7 @@ use DateTime;
 use Pdo;
 class Produit extends Model{
 
-    // protected $id;
+    protected $id;
     protected $titre;
     protected $description;
     protected $prix;
@@ -152,7 +152,6 @@ class Produit extends Model{
         @$envoyer=$_GET["envoyer"];
         if(isset($envoyer)&& !empty(trim($categorie))){
         $search = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE categorie LIKE '%$categorie%' ORDER BY date DESC");
-        //$search->setFetchMode(PDO::FETCH_ASSOC, get_class($this), [$this->conn]);
         $search->execute();
         return $search->fetchAll(PDO::FETCH_ASSOC);
         

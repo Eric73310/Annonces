@@ -8,7 +8,7 @@ use PDO;
 class Model{
     public $conn;
     public $table;
-    public $champ;
+    //public $champ;
     
 
     public function __construct(Database $conn)
@@ -87,7 +87,7 @@ class Model{
     {
         $delete = $this->conn->getPDO()->prepare("DELETE  FROM {$this->table} WHERE id = ?");
         $delete->execute([$id]);
-        $supp = $delete->fetchAll();
+        $supp = $delete->fetch();
         
     }
 
