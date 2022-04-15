@@ -155,7 +155,7 @@ class Produit extends Model{
         //$search->setFetchMode(PDO::FETCH_ASSOC, get_class($this), [$this->conn]);
         $search->execute();
         return $search->fetchAll(PDO::FETCH_ASSOC);
-        $afficher='oui';
+        
         }
     }
 }

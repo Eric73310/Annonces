@@ -9,8 +9,9 @@ class AnnonceController extends Controller {
     {
         $produit = new Produit($this->getConnection());
         $produits = $produit->search();
+        $annonces = $produit->all();
         //echo "<pre>",print_r($produits),"</pre>";  die();
-        return $this->view('produits.index', compact('produits'));
+        return $this->view('produits.index', compact('produits', 'annonces'));
 
     }
 
