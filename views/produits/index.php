@@ -4,7 +4,7 @@
 <?php
 //echo "<pre>",print_r($params),"</pre>";
 //$afficher='oui';
-$envoyer=$_GET["envoyer"];
+@$envoyer=$_GET["envoyer"];
 if ($envoyer==true) {?>
     <div id="resultat"></div>
     <h1 id="nbr"><?=count($params['produits'])."".(count($params['produits'])>1?" annonces trouvées":" annonce trouvée") ?></h1>
