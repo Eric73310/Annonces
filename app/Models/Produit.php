@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use Pdo;
 class Produit extends Model{
 
     // protected $id;
@@ -16,7 +17,6 @@ class Produit extends Model{
     protected $image4;
     protected $image5;
     public $table = 'produits';
-
 
     public function getCreatedAt(): string
     {
@@ -144,6 +144,19 @@ class Produit extends Model{
         parent::delete($id);
         
         return true;
+    }
+
+    public function search()
+    {
+        @$categorie = $_GET['categorie'];
+        @$envoyer=$_GET["envoyer"];
+        if(isset($envoyer)&& !empty(trim($categorie))){
+        $search = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE categorie LIKE '%$categorie%' ORDER BY date DESC");
+        //$search->setFetchMode(PDO::FETCH_ASSOC, get_class($this), [$this->conn]);
+        $search->execute();
+        return $search->fetchAll(PDO::FETCH_ASSOC);
+        $afficher='oui';
+        }
     }
 }
 

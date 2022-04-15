@@ -8,6 +8,7 @@ use PDO;
 class Model{
     public $conn;
     public $table;
+    public $champ;
     
 
     public function __construct(Database $conn)
@@ -89,8 +90,6 @@ class Model{
         $supp = $delete->fetchAll();
         
     }
-
-
 
 }
 

@@ -28,8 +28,9 @@
         </div>
     </header>
     <div class="toolbar">
+        <form action="/Annonces/" method="get">
         <div class="search">
-            <select name="categorie" id="categorie">
+            <select type="search" name="categorie" id="categorie">
                 <option hidden>Choisisez une rubrique</option>
                 <option value="automobile">Auto</option>
                 <option value="immobilier">Immobilier</option>
@@ -38,7 +39,9 @@
                 <option value="multimedia">Multimedia</option>
                 <option value="emploi">Emploi</option>
             </select>
+            <input type="submit" value="search" name="envoyer">
         </div>
+        </form>
         <div class="ajout">
             <a href="/Annonces/formulaire/"><button name="button">Créez une nouvelle annonce</button></a>
             
