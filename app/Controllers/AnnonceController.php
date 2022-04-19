@@ -61,7 +61,7 @@ class AnnonceController extends Controller {
             $date = $pdf->getCreatedAt();
             $prix = $pdf->getPrix();
             $description = $pdf->getDescription();
-            $image = $pdf->getImage2();
+            $image = $pdf->getImage1();
 
         $html ="
             <!DOCTYPE html>
@@ -96,7 +96,7 @@ class AnnonceController extends Controller {
                 <section class='annonce'>
                     <h1>$titre</h1>
                     <div class='container'>
-                        <div class='img-container'><img src='/Annonces/public/pic/$image'/></div>
+                        <div class='img-container'><img width='350px' height='250px' src='/Annonces/public/pic/$image'/></div>
                         <div class='preview'>
                             <ul>
                                 <li>Date de création : <span>$date</span> </li>
@@ -116,7 +116,7 @@ class AnnonceController extends Controller {
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output($titre. ' .pdf','I');
+        $mpdf->Output($titre. ' .pdf','D');
             }
 }
 
