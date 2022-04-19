@@ -40,7 +40,7 @@ class Database{
         // }
     
         return $this->pdo;
-        var_dump($this->pdo);
+        //var_dump($this->pdo);
     }
 }
 // $database = new Database();
