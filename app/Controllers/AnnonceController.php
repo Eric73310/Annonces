@@ -61,7 +61,7 @@ class AnnonceController extends Controller {
             $date = $pdf->getCreatedAt();
             $prix = $pdf->getPrix();
             $description = $pdf->getDescription();
-            $image = $pdf->getImage2();
+            $image = $pdf->getImage1();
 
         $html ="
             <!DOCTYPE html>
