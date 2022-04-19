@@ -50,17 +50,13 @@ class AnnonceController extends Controller {
             'format' => 'A4',
             'orientation' => 'P'
         ]);
-         var_dump($pdf);
-         echo"<br>";
-        //  foreach($pdf as $valeur){
-            echo "<pre>",print_r($pdf,1),"</pre>";
+      
             $titre = $pdf->getTitre();
             $categorie = $pdf->getCategorie();
             $date = $pdf->getCreatedAt();
             $prix = $pdf->getPrix();
             $description = $pdf->getDescription();
-            $image = $pdf->getImage1();
-        //  }
+            $image = $pdf->getImage2();
 
         $html ="
             <!DOCTYPE html>
@@ -108,12 +104,11 @@ class AnnonceController extends Controller {
                     </div>
                 </section>
                 <div class='footer'>
-                <img class='logo' width='100px' src='./ressources/logo.png'/>
+                <img class='logo' width='100px' src='\Annonces\public\assets\logo'>
                 <p>&copy; Copyright 2022 : Corner Shop</p>
                 </div>
             </body>";
 
-        // $mpdf->SetHeader('|TheGoodCorner - Site d\'annonces gratuite|');
         $mpdf->WriteHTML($html);
 
         $mpdf->Output($titre. ' .pdf','D');
