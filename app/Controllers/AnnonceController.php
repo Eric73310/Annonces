@@ -41,9 +41,9 @@ class AnnonceController extends Controller {
 
         $pdf = $produit->findById($id);
         
-        var_dump($pdf);
+        //var_dump($pdf);
 
-       
+
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -51,6 +51,11 @@ class AnnonceController extends Controller {
             'orientation' => 'P'
         ]);
       
+        // var_dump($pdf);
+        // echo"<br>";
+
+        //  foreach($pdf as $valeur){
+            //echo "<pre>",print_r($pdf,1),"</pre>";
             $titre = $pdf->getTitre();
             $categorie = $pdf->getCategorie();
             $date = $pdf->getCreatedAt();
@@ -91,7 +96,7 @@ class AnnonceController extends Controller {
                 <section class='annonce'>
                     <h1>$titre</h1>
                     <div class='container'>
-                        <div class='img-container'><img src='$image'/></div>
+                        <div class='img-container'><img src='/Annonces/public/pic/$image'/></div>
                         <div class='preview'>
                             <ul>
                                 <li>Date de création : <span>$date</span> </li>
@@ -104,14 +109,14 @@ class AnnonceController extends Controller {
                     </div>
                 </section>
                 <div class='footer'>
-                <img class='logo' width='100px' src='\Annonces\public\assets\logo'>
+                <img class='logo' width='100px' src='/Annonces/public/assets/logo'/>
                 <p>&copy; Copyright 2022 : Corner Shop</p>
                 </div>
             </body>";
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output($titre. ' .pdf','D');
+        $mpdf->Output($titre. ' .pdf','I');
             }
 }
 
