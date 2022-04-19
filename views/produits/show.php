@@ -29,7 +29,7 @@
 <form action="/Annonces/delete/<?= $params['produit']->getId() ?>" method="POST" class="d-inline">
     <button class="seebtn" type="submit" class="">Supprimer</button>
 </form>
-<a href="/Annonces/pdf/<?= $params['produit']->getId() ?>"><button class="seebtn">PDF</button></a>
+<a href="/Annonces/pdf/<?= $params['produit']->getId() ?>" target="blank"><button class="seebtn">PDF</button></a>
 </div>
 
 
