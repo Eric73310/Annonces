@@ -38,9 +38,10 @@ class AnnonceController extends Controller {
         // global $router;
         $produit = new Produit($this->getConnection());
         var_dump($id);
+
         $pdf = $produit->findById($id);
         
-        // var_dump($pdf);
+        var_dump($pdf);
 
        
 
@@ -53,12 +54,12 @@ class AnnonceController extends Controller {
          echo"<br>";
         //  foreach($pdf as $valeur){
             echo "<pre>",print_r($pdf,1),"</pre>";
-            $titre = "dacia bigster";// $pdf[$id];
-            $categorie = 
-            $date = "2022";// $pdf->getCreatedAt();
-            $prix = "555";// $pdf->getPrix();
-            $description = "neuf";// $valeur->getDescription();
-            $image = "skjdvhkzehvh.jpeg"; //$valeur->getImage1();
+            $titre = $pdf->getTitre();
+            $categorie = $pdf->getCategorie();
+            $date = $pdf->getCreatedAt();
+            $prix = $pdf->getPrix();
+            $description = $pdf->getDescription();
+            $image = $pdf->getImage1();
         //  }
 
         $html ="
@@ -108,7 +109,7 @@ class AnnonceController extends Controller {
                 </section>
                 <div class='footer'>
                 <img class='logo' width='100px' src='./ressources/logo.png'/>
-                <p>&copy; Copyright 2020 : The Good Corner</p>
+                <p>&copy; Copyright 2022 : Corner Shop</p>
                 </div>
             </body>";
 
