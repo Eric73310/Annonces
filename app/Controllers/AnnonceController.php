@@ -42,15 +42,16 @@ class AnnonceController extends Controller {
         
         // var_dump($pdf);
 
-       
+
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
             'format' => 'A4',
             'orientation' => 'P'
         ]);
-         var_dump($pdf);
-         echo"<br>";
+        var_dump($pdf);
+        echo"<br>";
+
         //  foreach($pdf as $valeur){
             echo "<pre>",print_r($pdf,1),"</pre>";
             $titre = "dacia bigster";// $pdf[$id];
