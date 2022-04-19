@@ -50,6 +50,7 @@ class AnnonceController extends Controller {
             'format' => 'A4',
             'orientation' => 'P'
         ]);
+      
         // var_dump($pdf);
         // echo"<br>";
 
@@ -60,8 +61,7 @@ class AnnonceController extends Controller {
             $date = $pdf->getCreatedAt();
             $prix = $pdf->getPrix();
             $description = $pdf->getDescription();
-            $image = $pdf->getImage1();
-        //  }
+            $image = $pdf->getImage2();
 
         $html ="
             <!DOCTYPE html>
@@ -114,7 +114,6 @@ class AnnonceController extends Controller {
                 </div>
             </body>";
 
-        // $mpdf->SetHeader('|TheGoodCorner - Site d\'annonces gratuite|');
         $mpdf->WriteHTML($html);
 
         $mpdf->Output($titre. ' .pdf','I');
