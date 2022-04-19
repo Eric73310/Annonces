@@ -23,10 +23,13 @@
 </div>
 </div>
 
-
+<div class="choix">
 <a href="/Annonces/"><button class="seebtn">Retour</button></a>
-<a href="/Annonces/edit/<?= $params['produit']->id ?>"><button class="seebtn">Modifier</button></a>
-<form action="/Annonces/delete/<?= $params['produit']->id ?>" method="POST" class="d-inline">
-    <button type="submit" class="">Supprimer</button>
+<a href="/Annonces/edit/<?= $params['produit']->getId() ?>"><button class="seebtn">Modifier</button></a>
+<form action="/Annonces/delete/<?= $params['produit']->getId() ?>" method="POST" class="d-inline">
+    <button class="seebtn" type="submit" class="">Supprimer</button>
 </form>
-<button><a href="pdf{{$params}}" target="_blank">Générer un PDF de l'annonce</a></button>
+<a href="/Annonces/pdf/<?= $params['produit']->getId() ?>"><button class="seebtn">PDF</button></a>
+</div>
+
+

@@ -1,14 +1,16 @@
 <?php
 
 namespace App\Controllers;
-
+use \Mpdf\Mpdf;
 use App\Models\Produit;
 class AnnonceController extends Controller {
 
     public function index()
     {
         $produit = new Produit($this->getConnection());
+        var_dump("index");
         $produits = $produit->all();
+        var_dump($produits);
         // echo "<pre>",print_r($produits),"</pre>";  die();
         return $this->view('produits.index', compact('produits'));
 
@@ -32,25 +34,33 @@ class AnnonceController extends Controller {
         return $this->view('produits.modif');
     }
 
-    public function idpdf($params)
+    public function showPdf(int $id)
     {
-        $produit = new Produit($params);
-        $pdf = $produit->$params['id'];
+        // global $router;
+        $produit = new Produit($this->getConnection());
+        var_dump($id);
+        $pdf = $produit->findById($id);
+        
+        // var_dump($pdf);
 
-        $mpdf = new \Mpdf\Mpdf([
+       
+
+        $mpdf = new Mpdf([
             'mode' => 'utf-8',
             'format' => 'A4',
             'orientation' => 'P'
         ]);
-
-        foreach($pdf as $valuepdf){
-            $titre = $valuepdf->getTitle();
-            $categorie = $valuepdf->getCategorie();
-            $date = $valuepdf->getCreatedAt();
-            $description = $valuepdf->getDescription();
-            $prix = $valuepdf->getPrix();
-            $image = $valuepdf->getImage1();
-        }
+         var_dump($pdf);
+         echo"<br>";
+        //  foreach($pdf as $valeur){
+            echo "<pre>",print_r($pdf,1),"</pre>";
+            $titre = "dacia bigster";// $pdf[$id];
+            $categorie = 
+            $date = "2022";// $pdf->getCreatedAt();
+            $prix = "555";// $pdf->getPrix();
+            $description = "neuf";// $valeur->getDescription();
+            $image = "skjdvhkzehvh.jpeg"; //$valeur->getImage1();
+        //  }
 
         $html ="
             <!DOCTYPE html>
@@ -59,7 +69,8 @@ class AnnonceController extends Controller {
                 section.annonce {
                     padding: 10px;
                     text-align: center;
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Baskerville Old Face';
+                    color: #1d2625;
                 }
                 
                 section.annonce  div.container  ul {
@@ -102,10 +113,10 @@ class AnnonceController extends Controller {
                 </div>
             </body>";
 
-        $mpdf->SetHeader('|CornerShop, Achetez simplement de particulier à particulier ! |');
+        // $mpdf->SetHeader('|TheGoodCorner - Site d\'annonces gratuite|');
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output('CornerShop'. $titre. ' .pdf');
+        $mpdf->Output($titre. ' .pdf','D');
             }
 }
 

@@ -79,8 +79,6 @@ header {
 .annonce_container{
     font-family: 'DM Sans', sans-serif;
     border: solid 2px black;
-    
-    
 }
 
 h1{
@@ -128,7 +126,7 @@ h2{
     width: 500px;
 }
 
-
-
-
-
+.choix{
+    display: flex;
+    flex-direction: row;
+}

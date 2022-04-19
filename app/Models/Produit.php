@@ -5,7 +5,7 @@ namespace App\Models;
 use DateTime;
 class Produit extends Model{
 
-    // protected $id;
+    protected $id;
     protected $titre;
     protected $description;
     protected $prix;

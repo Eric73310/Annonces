@@ -242,4 +242,9 @@ h2 {
   width: 500px;
 }
 
+.choix {
+  display: flex;
+  flex-direction: row;
+}
+
 /*# sourceMappingURL=style.css.map */

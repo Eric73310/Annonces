@@ -3,8 +3,8 @@
 <?php
 
 //print_r($params);
+var_dump(count($params['produits']));
 foreach ($params['produits'] as $produit) :
-
 ?>
     <div class="annonce_container">
         <h2 class="categorie_annonce"><?= $produit->getCategorie() ?></h2>
@@ -23,8 +23,8 @@ foreach ($params['produits'] as $produit) :
 
 
 
-
-        <a class="voir" href="/Annonces/produits/<?= $produit->id ?>"><button class="seebtn">Voir le produit</button></a>
+        <a class="voir" href="/Annonces/produits/<?= $produit->getId() ?>"><button class="seebtn">Voir le produit</button></a>
     </div>
     <br>
+
 <?php endforeach ?>
