@@ -14,9 +14,10 @@ class ProduitController extends Controller{
     return $this->view('produits.form', compact('produits'));
     }
 
-    // Fonction pour traiter les données envoyées en Post
+    // Fonction pour traiter les données du formulaire de création envoyées en Post
     public function createProduit()
     {
+        // Insertion des images
         $countfiles = count($_FILES['image']['name']);
         for($i=0;$i<$countfiles;$i++){
             $filename = $_FILES['image']['name'][$i];
@@ -36,12 +37,14 @@ class ProduitController extends Controller{
         }
     }
 
+    // Fonction pour renvoyer le formulaire de modification
     public function edit(int $id)
     {
     $produit = (new Produit($this->getConnection()))->findById($id);
     return $this->view('produits.modif', compact('produit'));
     }
 
+    // Fonction pour traiter les données du formulaire de modification envoyées en Post pour la modification
     public function update(int $id)
     {
         $countfiles = count($_FILES);
@@ -63,6 +66,7 @@ class ProduitController extends Controller{
             return header("Location: /Annonces/produits/$id");
         }
     }
+    
     public function delete(int $id)
     {
         $produit = (new Produit($this->getConnection()));
