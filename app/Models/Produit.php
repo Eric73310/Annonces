@@ -19,6 +19,7 @@ class Produit extends Model{
     public $table = 'produits';
 
     public function getCreatedAt(): string
+    // Fonction pour retourner la date
     {
         return (new DateTime($this->date))->format('d/m/Y');
     }
@@ -148,6 +149,7 @@ class Produit extends Model{
 
     public function search($offset, $limit)
     {
+        // Fonction pour effectuer la recherche
         @$categorie = $_GET['categorie'];
         @$envoyer=$_GET["envoyer"];
         if(isset($envoyer)&& !empty(trim($categorie))){
@@ -159,8 +161,21 @@ class Produit extends Model{
         }
     }
 
+    public function pagingSearch()
+    {
+        /* Fonction pour calculer le nombre d'élément dans la base de donnée (colonne id) utiliser dans la pagination pour la recherche
+        */
+        @$categorie = $_GET['categorie'];
+        $pagingSearch = $this->conn->getPDO()->prepare("SELECT COUNT(*) AS id FROM `produits` WHERE categorie LIKE '%$categorie%';");
+        $pagingSearch->setFetchMode(PDO::FETCH_ASSOC);
+        $pagingSearch->execute();
+        return $pagingSearch->fetch();
+    }
+
     public function paging()
     {
+        /* Fonction pour calculer le nombre d'élément dans la base de donnée (colonne id) utilise dans la pagination sur tous les produits
+        */
         $paging = $this->conn->getPDO()->prepare("SELECT COUNT(*) AS id FROM `produits`;");
         $paging->setFetchMode(PDO::FETCH_ASSOC);
         $paging->execute();

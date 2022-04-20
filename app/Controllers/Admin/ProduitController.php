@@ -10,7 +10,7 @@ class ProduitController extends Controller{
     // Fonction pour renvoyer le formulaire
     public function create()
     {
-    $produits = (new Produit($this->getConnection()))->all();
+    $produits = (new Produit($this->getConnection()))->all(' ',' ');
     return $this->view('produits.form', compact('produits'));
     }
 
