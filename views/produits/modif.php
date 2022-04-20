@@ -35,7 +35,7 @@
         <option value="automobile"<?= ($params['produit']->getCategorie() == 'automobile') ? 'selected=selected' : '' ?>>Auto</option>
         <option value="immobilier"<?= ($params['produit']->getCategorie() == 'immobilier') ? 'selected=selected' : '' ?>>Immobilier</option>
         <option value="jardin" <?= ($params['produit']->getCategorie() == 'jardin') ? 'selected=selected' : '' ?>>Jardin</option>
-        <option value="vetements" <?= ($params['produit']->getCategorie() == 'vetements') ? 'selected=selected' : '' ?>>Vetements</option>
+        <option value="jeux" <?= ($params['produit']->getCategorie() == 'jeux') ? 'selected=selected' : '' ?>>Jouets & Jeux Vidéo</option>
         <option value="multimedia" <?= ($params['produit']->getCategorie() == 'multimedia') ? 'selected=selected' : '' ?>>Multimedia</option>
         <option value="emploi" <?= ($params['produit']->getCategorie() == 'emploi') ? 'selected=selected' : '' ?>>Emploi</option>
     </select><br>

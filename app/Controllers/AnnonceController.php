@@ -7,11 +7,23 @@ class AnnonceController extends Controller {
 
     public function index()
     {
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+        }else{
+            $currentPage = 1;
+        }
+        $parPage = 10;
+        $premier = ($currentPage * $parPage) - $parPage;
         $produit = new Produit($this->getConnection());
         $produits = $produit->search();
-        $annonces = $produit->all();
-        //echo "<pre>",print_r($annonces),"</pre>";  die();
-        return $this->view('produits.index', compact('produits', 'annonces'));
+        $annonces = $produit->all($premier, $parPage);
+        $paging = $produit->paging();
+        $nbAnnonce = $paging['id'];
+        //echo "<pre>",var_dump($nbAnnonce),"</pre>";  die();
+        // echo $paging;
+        $pages = ceil($nbAnnonce / $parPage);
+
+        return $this->view('produits.index', compact('produits', 'annonces', 'pages'));
 
     }
 
@@ -33,6 +45,16 @@ class AnnonceController extends Controller {
         return $this->view('produits.modif');
     }
 
+    public function paging()
+    {
+        $produit = new Produit($this->getConnection());
+        $paging = $produit->paging();
+        //echo "<pre>",print_r($paging),"</pre>";  die();
+        $parPage = 5;
+        $pages = $paging[0]['id'] / $parPage;
+        echo "<pre>",print_r($pages),"</pre>";  die();
+    }
+
     public function showPdf(int $id)
     {
         // global $router;
@@ -43,14 +65,11 @@ class AnnonceController extends Controller {
         
         //var_dump($pdf);
 
-
-
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
             'format' => 'A4',
             'orientation' => 'P'
         ]);
-      
         // var_dump($pdf);
         // echo"<br>";
 
@@ -82,11 +101,9 @@ class AnnonceController extends Controller {
                 section.annonce  div.container  ul {
                     list-style-type: none;
                 }
-
                 section.annonce  div.container  ul  li{
                     margin-top: 10px;
                 }
-
                 section.annonce h2{
                     margin-top: 20px;
                     text-align: center;
@@ -130,8 +147,4 @@ class AnnonceController extends Controller {
         $mpdf->Output($titre. ' .pdf','I');
             }
 }
-
-
-
-
 ?>
