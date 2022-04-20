@@ -146,12 +146,14 @@ class Produit extends Model{
         return true;
     }
 
-    public function search()
+    public function search($offset, $limit)
     {
         @$categorie = $_GET['categorie'];
         @$envoyer=$_GET["envoyer"];
         if(isset($envoyer)&& !empty(trim($categorie))){
-        $search = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE categorie LIKE '%$categorie%' ORDER BY date DESC");
+        $search = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE categorie LIKE '%$categorie%' ORDER BY date DESC LIMIT :offset, :limit");
+        $search->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $search->bindParam(':limit', $limit, PDO::PARAM_INT);
         $search->execute();
         return $search->fetchAll(PDO::FETCH_ASSOC);
         }

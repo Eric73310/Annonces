@@ -55,7 +55,6 @@ foreach ($params['annonces'] as $produit) :
     </div>
     <br>
 <?php endforeach ?>
-<?php }?>
 <?php
     if(isset($_GET['page']) && !empty($_GET['page'])){
         $currentPage = (int) strip_tags($_GET['page']);
@@ -96,3 +95,5 @@ foreach ($params['annonces'] as $produit) :
             <?php endif ?>
         </ul>
     </nav>
+<?php }?>
+

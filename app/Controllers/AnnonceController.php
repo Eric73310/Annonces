@@ -15,14 +15,16 @@ class AnnonceController extends Controller {
         $parPage = 10;
         $premier = ($currentPage * $parPage) - $parPage;
         $produit = new Produit($this->getConnection());
-        $produits = $produit->search();
+        $produits = $produit->search($premier, $parPage);
         $annonces = $produit->all($premier, $parPage);
         $paging = $produit->paging();
         $nbAnnonce = $paging['id'];
-        //echo "<pre>",var_dump($nbAnnonce),"</pre>";  die();
+        // $nbSearch = implode(" , ", $annonces);
+        // echo $nbSearch;
+        //echo "<pre>",print_r($annonces),"</pre>";  die();
         // echo $paging;
         $pages = ceil($nbAnnonce / $parPage);
-
+        //die();
         return $this->view('produits.index', compact('produits', 'annonces', 'pages'));
 
     }
@@ -43,16 +45,6 @@ class AnnonceController extends Controller {
     public function modif()
     {
         return $this->view('produits.modif');
-    }
-
-    public function paging()
-    {
-        $produit = new Produit($this->getConnection());
-        $paging = $produit->paging();
-        //echo "<pre>",print_r($paging),"</pre>";  die();
-        $parPage = 5;
-        $pages = $paging[0]['id'] / $parPage;
-        echo "<pre>",print_r($pages),"</pre>";  die();
     }
 
     public function showPdf(int $id)
