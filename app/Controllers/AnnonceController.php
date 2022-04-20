@@ -19,13 +19,14 @@ class AnnonceController extends Controller {
         $annonces = $produit->all($premier, $parPage);
         $paging = $produit->paging();
         $nbAnnonce = $paging['id'];
-        // $nbSearch = implode(" , ", $annonces);
-        // echo $nbSearch;
-        //echo "<pre>",print_r($annonces),"</pre>";  die();
-        // echo $paging;
         $pages = ceil($nbAnnonce / $parPage);
+        @$nbSearch = count($produits);
+        $pagesSearch = ceil($nbSearch / $parPage);
+        //echo "<pre>",print_r($pagesSearch),"</pre>";  die();
+        // echo $paging;
+        
         //die();
-        return $this->view('produits.index', compact('produits', 'annonces', 'pages'));
+        return $this->view('produits.index', compact('produits', 'annonces', 'pages', 'pagesSearch'));
 
     }
 
