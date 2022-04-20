@@ -237,14 +237,39 @@ h2 {
   color: #359969;
 }
 
+.search {
+  font-family: "DM Sans", sans-serif;
+  background-color: #FFFFFF;
+  border: solid;
+  border-radius: 50px;
+  color: #359969;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search:hover {
+  background-color: #359969;
+  color: #FFFFFF;
+}
+
 .infos {
   padding-left: 375px;
   width: 500px;
 }
 
+.infos_show {
+  text-align: center;
+  font-size: larger;
+}
+
 .choix {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 5%;
 }
 
 /*# sourceMappingURL=style.css.map */

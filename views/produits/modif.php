@@ -1,4 +1,5 @@
 <h1>Modifier votre annonce</h1>
+<div class="form_modif">
 <h2><?= $params['produit']->getId() ?></h2> 
 <form action="/Annonces/edit/<?= $params['produit']->getId() ?>" method="POST" enctype="multipart/form-data">
     <div>
@@ -24,7 +25,7 @@
         for ($i=0; $i < 5 ; $i++) {
             $image[$i];
                 //echo "<pre>",print_r( $image[$i]),"</pre>";?>
-            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image<?=$i ?>" id="img" ><img src= "../public/pic/<?= $image[$i]  ?>"width="350px" height="200px">
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image<?=$i ?>" id="img" ><img src= "../public/pic/<?= $image[$i]  ?>"width="100px" >
         <?php  } ?>
     </div>
 
@@ -39,6 +40,7 @@
         <option value="emploi" <?= ($params['produit']->getCategorie() == 'emploi') ? 'selected=selected' : '' ?>>Emploi</option>
     </select><br>
 
-        <input type="submit">
+        <input class="seebtn" type="submit">
 </form>
-<a href="/Annonces/">Retour</a>
+</div>
+<a href="/Annonces/"><button class="seebtn">Retour</button></a>

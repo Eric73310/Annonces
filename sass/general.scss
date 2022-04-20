@@ -121,12 +121,37 @@ h2{
         background-color: $white;
         color: $green-darker;
     }
+
+    .search {
+        font-family: 'DM Sans', sans-serif;
+        background-color: $white;
+        border: solid;
+        border-radius: 50px;
+        color: $green-darker;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+        }
+        .search:hover {
+            background-color: $green-darker;
+            color: $white;
+        }
 .infos{
     padding-left: 375px;
     width: 500px;
 }
 
+.infos_show{
+    text-align: center;
+    font-size: larger;
+}
+
 .choix{
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5%;
+
 }
