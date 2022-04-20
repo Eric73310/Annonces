@@ -70,8 +70,13 @@ class AnnonceController extends Controller {
                 section.annonce {
                     padding: 10px;
                     text-align: center;
-                    font-family: 'Baskerville Old Face';
+                    font-family: 'DM Sans', sans-serif;
                     color: #1d2625;
+                }
+
+                .header, .footer{
+                    color: white;
+                    background-color: #519F50;
                 }
                 
                 section.annonce  div.container  ul {
@@ -87,16 +92,21 @@ class AnnonceController extends Controller {
                     text-align: center;
                 }
             
-                div.footer {
-                    margin-top: 100px;
+                .footer {
+                    margin-top: 50px;
                     text-align: center;
+                    height: 100px;
                 }
             </style>
             <body>
                 <section class='annonce'>
+                <div class='header'>
+                <img class='logo' width='200px' src='/Annonces/public/assets/logo'/>
+                <p>Achetez simplement de particulier à particulier ! </p>
+                </div>
                     <h1>$titre</h1>
                     <div class='container'>
-                        <div class='img-container'><img width='350px' height='250px' src='/Annonces/public/pic/$image'/></div>
+                        <div class='img-container'><img width='300px' src='/Annonces/public/pic/$image'/></div>
                         <div class='preview'>
                             <ul>
                                 <li>Date de création : <span>$date</span> </li>
@@ -107,16 +117,17 @@ class AnnonceController extends Controller {
                         <h2>Description</h2>
                         <p>$description</p>
                     </div>
-                </section>
-                <div class='footer'>
-                <img class='logo' width='100px' src='/Annonces/public/assets/logo'/>
+                    <div class='footer'>
                 <p>&copy; Copyright 2022 : Corner Shop</p>
                 </div>
-            </body>";
+            
+                </section>
+                </body>";
+                
 
         $mpdf->WriteHTML($html);
 
-        $mpdf->Output($titre. ' .pdf','D');
+        $mpdf->Output($titre. ' .pdf','I');
             }
 }
 

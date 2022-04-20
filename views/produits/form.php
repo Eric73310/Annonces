@@ -32,6 +32,10 @@
     <div>
     <br><label for="image">Image</label><br>
             <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
+            <input type="file" accept = "image/jpg,image/jpeg,image/gif,image/png" name="image[]" id="img" multiple required>
         </div>
         <br>
 
