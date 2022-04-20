@@ -67,18 +67,18 @@ foreach ($params['annonces'] as $produit) :
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
             <?php if ($currentPage  >1) : ?> 
                 <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage - 1 ?>" class="page-link">Précédent</a>
+                <a href="/Annonces/?page=<?= $currentPage - 1 ?>"><button class="seebtn">Precedent</button></a>
             </li>
             <?php else : ?>
                 <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage?>" class="page-link">Précédent</a>
+                <a href="/Annonces/?page=<?= $currentPage?>"><button class="seebtn">Precedent</button></a>
             </li>
             <?php endif ?>
 
             <?php for($page = 1;  $page <= $params['pages'];  $page++): ?>
             <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                 <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                    <a href="/Annonces/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                    <a href="/Annonces/?page=<?= $page ?>"><button class="seebtn"><?= $page ?></button></a>
                 </li>
             <?php endfor ?>
 
@@ -86,11 +86,11 @@ foreach ($params['annonces'] as $produit) :
             <?php
             if ($currentPage <= $params['pages'] -1) : ?>
             <li class="page-item <?= ($currentPage == $params['pages']) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                <a href="/Annonces/?page=<?= $currentPage + 1 ?>"><button class="seebtn">Suivante</button></a>
             </li>
             <?php else : ?>
                 <li class="page-item <?= ($currentPage == $params['pages']) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage ?>" class="page-link">Suivante</a>
+                <a href="/Annonces/?page=<?= $currentPage ?>"><button class="seebtn">Suivante</button></a>
             </li>
             <?php endif ?>
         </ul>
