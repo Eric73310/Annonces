@@ -154,8 +154,16 @@ class Produit extends Model{
         $search = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE categorie LIKE '%$categorie%' ORDER BY date DESC");
         $search->execute();
         return $search->fetchAll(PDO::FETCH_ASSOC);
-        
         }
+    }
+
+    public function paging()
+    {
+        $paging = $this->conn->getPDO()->prepare("SELECT COUNT(*) AS id FROM `produits`;");
+        $paging->setFetchMode(PDO::FETCH_ASSOC);
+        $paging->execute();
+        return $paging->fetch();
+        //$nbannonce = (int) $result2->getId();
     }
 }
 

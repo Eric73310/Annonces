@@ -12,7 +12,7 @@
         <option value="automobile">Auto</option>
         <option value="immobilier">Immobilier</option>
         <option value="jardin">Jardin</option>
-        <option value="vetements">Vetements</option>
+        <option value="jeux">Jouets & Jeux Vidéo</option>
         <option value="multimedia">Multimedia</option>
         <option value="emploi">Emploi</option>
     </select><br>

@@ -16,9 +16,13 @@ class Model{
         $this->conn = $conn;
     }
 
-    public function all() : array
+    public function all($offset, $limit) : array
     {
-        $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} ORDER BY date DESC");
+        $offset = (int) $offset;
+        $limit = (int) $limit;
+        $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} ORDER BY date DESC LIMIT :offset, :limit");
+        $select->bindParam(':offset', $offset, PDO::PARAM_INT);
+        $select->bindParam(':limit', $limit, PDO::PARAM_INT);
         $select->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->conn]);
         $select->execute();
         return $select->fetchAll();
