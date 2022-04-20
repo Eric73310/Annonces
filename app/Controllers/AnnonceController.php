@@ -12,7 +12,7 @@ class AnnonceController extends Controller {
         }else{
             $currentPage = 1;
         }
-        $parPage = 10;
+        $parPage = 2;
         $premier = ($currentPage * $parPage) - $parPage;
         $produit = new Produit($this->getConnection());
         $produits = $produit->search($premier, $parPage);

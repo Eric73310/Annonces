@@ -43,18 +43,18 @@ if ($envoyer==true) {?>
                     <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
                     <?php if ($currentPage  >1) : ?> 
                         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                        <a href="/Annonces/?page=<?= $currentPage - 1 ?>"><button class="seebtn">Precedent</button></a>
+                        <a href="/Annonces/?page=<?= $currentPage - 1 ?>/"><button class="seebtn">Precedent</button></a>
                     </li>
                     <?php else : ?>
                         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                        <a href="/Annonces/?page=<?= $currentPage?>"><button class="seebtn">Precedent</button></a>
+                        <a href="/Annonces/?page=<?= $currentPage?>/"><button class="seebtn">Precedent</button></a>
                     </li>
                     <?php endif ?>
         
                     <?php for($page = 1;  $page <= $params['pagesSearch'];  $page++): ?>
                     <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                         <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                            <a href="/Annonces/?page=<?= $page ?>"><button class="seebtn"><?= $page ?></button></a>
+                            <a href="/Annonces/?page=<?= $page ?>/"><button class="seebtn"><?= $page ?></button></a>
                         </li>
                     <?php endfor ?>
         
@@ -62,11 +62,11 @@ if ($envoyer==true) {?>
                     <?php
                     if ($currentPage <= $params['pagesSearch'] -1) : ?>
                     <li class="page-item <?= ($currentPage == $params['pagesSearch']) ? "disabled" : "" ?>">
-                        <a href="/Annonces/?page=<?= $currentPage + 1 ?>"><button class="seebtn">Suivante</button></a>
+                        <a href="/Annonces/?page=<?= $currentPage + 1 ?>/"><button class="seebtn">Suivante</button></a>
                     </li>
                     <?php else : ?>
                         <li class="page-item <?= ($currentPage == $params['pagesSearch']) ? "disabled" : "" ?>">
-                        <a href="/Annonces/?page=<?= $currentPage ?>"><button class="seebtn">Suivante</button></a>
+                        <a href="/Annonces/?page=<?= $currentPage ?>/"><button class="seebtn">Suivante</button></a>
                     </li>
                     <?php endif ?>
                 </ul>
@@ -106,34 +106,24 @@ foreach ($params['annonces'] as $produit) :
 <nav>
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-            <?php if ($currentPage  >1) : ?> 
-                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage - 1 ?>"><button class="seebtn">Precedent</button></a>
-            </li>
-            <?php else : ?>
-                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage?>"><button class="seebtn">Precedent</button></a>
-            </li>
+            <?php if ($currentPage  > 1) : ?> 
+                <li class="page-item"><a href="/Annonces/?page=<?= $currentPage - 1 ?>" class="page-link"><button class="seebtn">Précédent</button></a></li>
             <?php endif ?>
 
             <?php for($page = 1;  $page <= $params['pages'];  $page++): ?>
-            <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                    <a href="/Annonces/?page=<?= $page ?>"><button class="seebtn"><?= $page ?></button></a>
-                </li>
-            <?php endfor ?>
-
-            <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-            <?php
-            if ($currentPage <= $params['pages'] -1) : ?>
-            <li class="page-item <?= ($currentPage == $params['pages']) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage + 1 ?>"><button class="seebtn">Suivante</button></a>
-            </li>
-            <?php else : ?>
-                <li class="page-item <?= ($currentPage == $params['pages']) ? "disabled" : "" ?>">
-                <a href="/Annonces/?page=<?= $currentPage ?>"><button class="seebtn">Suivante</button></a>
-            </li>
+                    <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                            <a href="/Annonces/?page=<?= $page ?>/"><button class="seebtn"><?= $page ?></button></a>
+                        </li>
+                <?php endfor ?>
+            
+            <?php if ($currentPage < $params['pages']) : ?> 
+                <li class="page-item"><a href="/Annonces/?page=<?= $currentPage + 1 ?>" class="page-link"><button class="seebtn">Suivant</button></a></li>
             <?php endif ?>
+
+            
+
+            
         </ul>
     </nav>
 <?php }?>
