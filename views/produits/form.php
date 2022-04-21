@@ -19,7 +19,7 @@
     
     <div>
     <br><label for="titre">Titre : </label><br>
-        <input type="text" id="titre" name="titre">
+        <input type="text" id="titre" name="titre" size="35">
     </div>
     <div>
     <br><label for="description">Description : </label><br>
@@ -27,7 +27,7 @@
     </div>
     <div>
     <br><label for="prix">Prix : </label><br>
-        <input type="number" id="prix" name="prix">
+        <input type="number" id="prix" name="prix" size="35">
     </div>
     <div>
     <br><label for="image">Image</label><br>

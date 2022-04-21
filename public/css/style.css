@@ -115,7 +115,7 @@ input:nth-of-type(5):checked ~ main#carousel {
 }
 
 label {
-  color: #359969;
+  color: #194831;
   font-size: larger;
   text-decoration: underline;
   width: 600px;
@@ -127,9 +127,30 @@ label {
   max-width: 80%;
 }
 
+.form_modif {
+  display: flex;
+  justify-content: center;
+}
+.form_modif .modif {
+  width: 600px;
+  border: solid 2px black;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.form_modif .modi {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+.form_modif label {
+  width: 300px;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin-top: 0;
+  color: #194831;
   accent-color: #519F50;
 }
 
@@ -155,7 +176,7 @@ header h1 {
 }
 
 .toolbar {
-  background-color: #359969;
+  background-color: #194831;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -178,7 +199,7 @@ header h1 {
   background-color: #FFFFFF;
   border: solid;
   border-radius: 50px;
-  color: #359969;
+  color: #194831;
   font-size: 1.6em;
   font-weight: bold;
   margin: 10px;
@@ -186,7 +207,7 @@ header h1 {
   cursor: pointer;
 }
 .toolbar .ajout button:hover {
-  background-color: #359969;
+  background-color: #194831;
   color: #FFFFFF;
 }
 
@@ -221,7 +242,7 @@ h2 {
 
 .seebtn {
   font-family: "DM Sans", sans-serif;
-  background-color: #359969;
+  background-color: #194831;
   border: solid;
   border-radius: 50px;
   color: #FFFFFF;
@@ -234,7 +255,7 @@ h2 {
 
 .seebtn:hover {
   background-color: #FFFFFF;
-  color: #359969;
+  color: #194831;
 }
 
 .search {
@@ -242,7 +263,7 @@ h2 {
   background-color: #FFFFFF;
   border: solid;
   border-radius: 50px;
-  color: #359969;
+  color: #194831;
   font-size: 1.6em;
   font-weight: bold;
   margin: 10px;
@@ -251,7 +272,7 @@ h2 {
 }
 
 .search:hover {
-  background-color: #359969;
+  background-color: #194831;
   color: #FFFFFF;
 }
 

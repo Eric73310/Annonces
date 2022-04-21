@@ -1,28 +1,53 @@
-.form_create{
+.form_create {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+
 }
 
-.formulaire{
+.formulaire {
     width: 600px;
     text-align: center;
     border: solid 2px black;
 
 }
 
-label{
+label {
     color: $green-darker;
     font-size: larger;
     text-decoration: underline;
     width: 600px;
 }
-.btnadd{
+
+.btnadd {
     display: flex;
     justify-content: flex-end;
     max-width: 80%;
 }
 
-////
+//
+.form_modif {
+    display: flex;
+    justify-content: center;
+    
 
+
+
+.modif {
+    width: 600px;
+    border: solid 2px black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.modi{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+label{
+    width: 300px;
+}
+}
