@@ -7,30 +7,46 @@ class AnnonceController extends Controller {
 
     public function index()
     {
+        $produit = new Produit($this->getConnection());
+
+        // Numéro de page dans l'URL. Si aucun numéro de page alors nous sommes en page 1
         if(isset($_GET['page']) && !empty($_GET['page'])){
             $currentPage = (int) strip_tags($_GET['page']);
         }else{
             $currentPage = 1;
         }
-        $parPage = 10;
+
+        // On détermine le nombre d'élément par page
+        $parPage = 2;
+        // On calcul le 1er élément de la page
         $premier = ($currentPage * $parPage) - $parPage;
-        $produit = new Produit($this->getConnection());
         $produits = $produit->search($premier, $parPage);
         $annonces = $produit->all($premier, $parPage);
+
+        // Pagination sur tous les produits
         $paging = $produit->paging();
         $nbAnnonce = $paging['id'];
-        // $nbSearch = implode(" , ", $annonces);
-        // echo $nbSearch;
-        //echo "<pre>",print_r($annonces),"</pre>";  die();
-        // echo $paging;
         $pages = ceil($nbAnnonce / $parPage);
-        //die();
-        return $this->view('produits.index', compact('produits', 'annonces', 'pages'));
+
+        // Pagination sur la recherche
+        $pagingSearch = $produit->pagingSearch();
+        $nbSearch = $pagingSearch['id'];
+        $pagesSearch = ceil($nbSearch / $parPage);
+
+        //echo "<pre>",print_r($pagesSearch),"</pre>";  die();
+
+        /* On return : 
+        - produits pour la fonction search (sélection pour la recherche)
+        - annonces pour la fonction all (sélection de tous les produits)
+        - pages pour la pagination sur tous les produits
+        - pagesSearch pour la pagination sur la recherche*/
+        return $this->view('produits.index', compact('produits', 'annonces', 'pages', 'pagesSearch'));
 
     }
 
     public function show(int $id)
     {
+        // Fonction qui affiche un produit grâce à son id
         $produit = new Produit($this->getConnection());
         $produit = $produit->findById($id);
         //echo "<pre>",print_r($produit),"</pre>"; die();
@@ -39,11 +55,13 @@ class AnnonceController extends Controller {
 
     public function form()
     {
+        // Retourne le formulaire d'ajout
         return $this->view('produits.form');
     }
 
     public function modif()
     {
+        // Retourne le formulaire de modification
         return $this->view('produits.modif');
     }
 

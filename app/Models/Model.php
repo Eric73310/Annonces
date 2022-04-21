@@ -18,6 +18,10 @@ class Model{
 
     public function all($offset, $limit) : array
     {
+        /* Fonction de sélection de tous les produits (modèle)
+        $offset position de début
+        $limit position de fin
+        */ 
         $offset = (int) $offset;
         $limit = (int) $limit;
         $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} ORDER BY date DESC LIMIT :offset, :limit");
@@ -35,6 +39,7 @@ class Model{
 
     public function findById(int $id): Model
     {
+        //  Fonction de sélection de d'un  produits par l'id(modèle)
         $select = $this->conn->getPDO()->prepare("SELECT * FROM {$this->table} WHERE id = ?");
         $select->setFetchMode(PDO::FETCH_CLASS, get_class($this),[$this->conn]);
         $select->execute([$id]);
